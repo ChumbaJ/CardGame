@@ -1,0 +1,15 @@
+.cardContent {
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    height: 100%;
+    padding: 0 !important;
+}
+
+.cardTitle {
+    font-size: 30px !important;
+    font-weight: 800;
+    color: #00000000; /* Делаем текст прозрачным */
+    -webkit-text-stroke: 2px rgb(45, 122, 157); /* Обводка текста */
+    user-select: none;
+}

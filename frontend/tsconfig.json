@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "lib": ["ES2015", "DOM"]
+    },
+    "files": [],
+    "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+    "include": [
+        "src/**/*", // Включить весь исходный код
+        "types/**/*.d.ts" // Включить типы из вашей кастомной папки
+    ]
+}

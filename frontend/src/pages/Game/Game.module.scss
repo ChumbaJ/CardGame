@@ -1,0 +1,224 @@
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    flex-direction: column;
+
+    padding-top: 130px;
+
+    gap: 70px;
+}
+
+.gameTable {
+    position: relative;
+    overflow: visible;
+
+    width: 400px;
+    height: 400px;
+
+    background-color: gray;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #1e1e1e;
+    box-shadow: 0 0px 12px rgba(255, 255, 255, 0.2);
+
+    &__cardList {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        
+        &__stack {
+            position: relative;
+            width: fit-content !important;
+        }
+
+        &__card {
+            // position: absolute;
+
+            &.top {
+                position: absolute;
+                top: 0;
+
+                &:hover {
+                    transform: scale(1) !important;
+                }
+            }
+        }
+    }
+
+    &__inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease-in;
+
+        width: 95%;
+        height: 95%;
+
+        border-radius: 50%;
+        background-color: #181a18;
+
+        box-shadow: inset 0 0px 12px rgba(255, 255, 255, 0.2);
+
+        &.highlight {
+            transition: 0.3s ease-in;
+            animation: pulse 1.5s infinite ease-in-out;
+            box-shadow: inset 0 0 20px 0px rgba(209, 193, 99, 0.5); /* Светлое золотистое свечение */
+            cursor: pointer;
+        }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: inset 0 0 20px 0px rgba(209, 193, 99, 0.5);
+    }
+    50% {
+        box-shadow: inset 0 0 20px 0px rgba(209, 193, 99, 0.7), 0 0 25px rgba(209, 193, 99, 0.4);
+    }
+    100% {
+        box-shadow: inset 0 0 20px 0px rgba(209, 193, 99, 0.5);
+    }
+}
+
+.turnDisplay {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &__title {
+        font-size: 24px !important;
+        font-weight: 800 !important;
+    }
+
+    &__particle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 8px;
+        background-color: rgba(255, 255, 255, 0.515);
+        box-shadow: 0 0 10px 1px white;
+        border-radius: 50%;
+        // animation: particle-animation 0.6s infinite ease-out;
+        opacity: 0; /* Сначала частицы прозрачные */
+    }
+
+    &__caption {
+        text-align: center;
+    }
+}
+
+.next {
+    position: absolute !important;
+    bottom: -30%;
+    &__disabled {
+        background-color: #555 !important;
+        color: #aaa !important; 
+        border-color: #555 !important; 
+        cursor: not-allowed !important; 
+        box-shadow: none !important; 
+    }
+}
+
+@keyframes particle-animation {
+    0% {
+        transform: translate(50%) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, 100px) scale(1);
+        opacity: 0;
+    }
+}
+
+.user {
+    position: absolute;
+    white-space: nowrap;
+    text-align: center;
+    // left: 50%;
+    // top: 50%;
+}
+
+.opponentFov {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 32px;
+}
+
+.fov {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 32px;
+}
+
+.player {
+    margin: 0;
+}
+
+.deck {
+    position: fixed;
+    right: 5%;
+    top: 5%;
+
+    width: 90px;
+    height: 160px;
+
+    &__card {
+        position: absolute;
+        width: 90px !important;
+        height: 160px !important;
+        left: 0;
+        top: 0;
+
+        &_1 {
+            transform: rotate(0deg);
+        }
+        &_2 {
+            transform: rotate(4deg);
+        }
+        &_3 {
+            transform: rotate(8deg);
+        }
+    }
+}
+
+.selected {
+    border: 1px solid rgba(255, 217, 0, 0.607) !important;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4) !important;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 215, 0, 0.2) 0%,
+        rgba(255, 255, 255, 0.05) 40%,
+        rgba(255, 215, 0, 0) 50%,
+        rgba(255, 215, 0, 0) 70%,
+        rgba(255, 215, 0, 0.2) 100%
+    ) !important;
+}
+
+.highlight {
+    transition: 0.3s ease-in;
+    animation: pulse 1.5s infinite ease-in-out;
+    box-shadow: inset 0 0 20px 0px rgba(209, 193, 99, 0.5); /* Светлое золотистое свечение */
+}

@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "nodemon server.ts"
+  },
+  "dependencies": {
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "tsx": "^4.19.3"
+  }
+}

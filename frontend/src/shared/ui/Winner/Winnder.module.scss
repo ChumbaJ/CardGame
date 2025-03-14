@@ -1,0 +1,65 @@
+.wrapper {
+    transition: 0.3s ease-in;
+
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.486);
+}
+
+.textWrapper {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    // width: 380px;
+    animation: typing 1s steps(10) 0.5s both;
+}
+
+.title {    
+    // background-color: rgb(1, 8, 2);
+    position: relative;
+    z-index: 20;
+}
+
+.cursor {
+    position: absolute;
+    width: 20px;
+    height: calc(100% - 40px);
+    background-color: #fff;
+    display: inline-block;
+    animation: blink 1s step-start infinite;
+
+    right: 0px;
+    top: 17px;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes typing {
+    from {
+        // transform: translateX(110%);
+        width: 0;
+    }
+    to {
+        // transform: translateX(0%);
+        width: 390px;
+    }
+}
