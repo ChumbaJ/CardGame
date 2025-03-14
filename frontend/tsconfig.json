@@ -2,7 +2,6 @@
     "compilerOptions": {
         "lib": ["ES2015", "DOM"]
     },
-    "files": [],
     "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
     "include": [
         "src/**/*", // Включить весь исходный код

@@ -191,16 +191,52 @@
         height: 160px !important;
         left: 0;
         top: 0;
+        cursor:auto;
 
         &_1 {
             transform: rotate(0deg);
+            &:hover {
+                transform: rotate(0) !important;
+            }
+
         }
         &_2 {
             transform: rotate(4deg);
+            &:hover {
+                transform: rotate(4deg) !important;
+            }
         }
         &_3 {
             transform: rotate(8deg);
+            &:hover {
+                transform: rotate(8deg) !important;
+            }
         }
+    }
+
+    &__amount {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-30%, -70%);
+
+        z-index: 100;
+        font-size: 32px;
+        font-weight: 1000;
+        font-weight: 600;
+        color: #e0e0e0; // Светло-серый для контраста
+        background: linear-gradient(135deg, #222, #33333300); // Темно-серый градиент
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-transform: uppercase;
+
+        box-shadow: 0 0px 4px rgba(255, 255, 255, 0.1); // Легкий внутренний блик
+
+    }
+
+    &:hover {
+        transform: scale(1) !important;
     }
 }
 

@@ -155,14 +155,12 @@ export const Game = () => {
 
     return (
         <Container className={cls.main}>
-            {data.gameState.deck.length ? (
-                <Box className={cls.deck}>
-                    <p style={{ zIndex: 100, position: 'fixed' }}>{data.gameState.deck.length}</p>
-                    <Card className={`${cls.deck__card} ${cls.deck__card_1}`} />
-                    <Card className={`${cls.deck__card} ${cls.deck__card_2}`} />
-                    <Card className={`${cls.deck__card} ${cls.deck__card_3}`} />
-                </Box>
-            ) : null}
+            <Box className={cls.deck}>
+                <p className={cls.deck__amount}>{data.gameState.deck.length}</p>
+                <Card className={`${cls.deck__card} ${cls.deck__card_1}`} />
+                <Card className={`${cls.deck__card} ${cls.deck__card_2}`} />
+                <Card className={`${cls.deck__card} ${cls.deck__card_3}`} />
+            </Box>
 
             <Box className={cls.gameTable} onClick={handleTableClick}>
                 <Box className={cls.turnDisplay}>

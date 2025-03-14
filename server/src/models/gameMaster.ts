@@ -90,6 +90,9 @@ export class GameMaster implements IGameMaster {
     }
 
     evaluateTurn(): boolean {
+        let isChangeTurn: boolean = false;
+
+        // add cards
         for (const [playerId, playerCards] of this.playersCards) {
             if (playerCards.length >= 4) continue;
 
@@ -98,16 +101,9 @@ export class GameMaster implements IGameMaster {
             this.giveCards([playerId], lack);
         }
 
-        const unbeatenCardsCount = this.table.reduce((sum, stack) => {
-            if (stack.length === 1) sum++;
-            return sum;
-        }, 0);
-
-        this.giveCards([this.players[this.defenderPlayerId]], unbeatenCardsCount);
-
+        // Check winner
         const attacker = this.players[this.currentPlayerId];
         const defender = this.players[this.defenderPlayerId];
-
         if (this.deck.length === 0) {
             if (this.playersCards.get(attacker)!.length === 0) {
                 this.winner = this.currentPlayerId;
@@ -118,6 +114,24 @@ export class GameMaster implements IGameMaster {
             }
         }
 
+        // calculate unbeatedCards
+        const unbeatenCardsCount = this.table.reduce((sum, stack) => {
+            if (stack.length === 1) sum++;
+            return sum;
+        }, 0);
+
+        this.giveCards([this.players[this.defenderPlayerId]], unbeatenCardsCount);
+
+        // miss a turn if has unbeated cards:
+        if (unbeatenCardsCount) {
+            this.currentPlayerId = (this.defenderPlayerId + 1) % this.players.length;
+            this.defenderPlayerId = (this.currentPlayerId + 1) % this.players.length;
+            isChangeTurn = true;
+            this.mode = 'attack';
+            this.table = [];
+        }
+
+        // Check 3-in-a-row combination
         for (const [playerId, playerHand] of this.playersCards) {
             const cardCounts = playerHand.reduce((acc, card) => {
                 acc[card] = (acc[card] || 0) + 1;
@@ -127,7 +141,6 @@ export class GameMaster implements IGameMaster {
             const hasThree = Object.values(cardCounts).some((cards) => cards >= 3);
 
             if (hasThree) {
-
                 const currentPlayerId = this.players.findIndex((id) => id === playerId);
                 this.currentPlayerId = currentPlayerId;
 
@@ -140,10 +153,12 @@ export class GameMaster implements IGameMaster {
                 this.mode = 'attack';
                 this.table = [];
 
-                return true;
+                isChangeTurn = true;
+                break;
             }
         }
-        return false;
+
+        return isChangeTurn;
     }
 
     nextTurn(): void {
