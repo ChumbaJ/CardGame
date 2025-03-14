@@ -31,7 +31,7 @@ npm run start
 
 ## 📸 Screenshots
 ![Gameplay Screenshot Attack](/shared/assets/attack.png)
-![Gameplay Screenshot Defense](/shared/assets/defense.png.png)
+![Gameplay Screenshot Defense](/shared/assets/defense.png)
 ![Gameplay Screenshot Multiplayer](/shared/assets/manyPlayers.png)
 
 ## 📜 License
