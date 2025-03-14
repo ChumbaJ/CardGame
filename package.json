@@ -1,0 +1,21 @@
+{
+  "name": "card-game",
+  "version": "1.0.0",
+  "description": "A simple coop card game.",
+  "scripts": {
+    "install:all": "npm install --prefix frontend && npm install --prefix server",
+    "start": "npm run start:server & npm run start:frontend",
+    "start:server": "npm run dev --prefix server",
+    "start:frontend": "npm run dev --prefix frontend"
+  },
+  "keywords": [
+    "card",
+    "game",
+    "multiplayer"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
