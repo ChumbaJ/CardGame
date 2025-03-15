@@ -123,6 +123,7 @@
 .next {
     position: absolute !important;
     bottom: -30%;
+    z-index: 1000 !important;
     &__disabled {
         background-color: #555 !important;
         color: #aaa !important; 
