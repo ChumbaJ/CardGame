@@ -1,3 +1,5 @@
+import crypto from 'crypto';
+
 export interface GameStateInterface {
     id: string;
     deck: number[];
