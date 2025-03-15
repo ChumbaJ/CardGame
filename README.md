@@ -29,6 +29,19 @@ npm run install:all
 npm run start
 ```
 
+⚡ If you encounter "Permission denied" on macOS
+
+If you see an error like Permission denied when trying to run the server, you may need to grant execute permissions to some files. Run the following commands:
+
+🖥️ For macOS Terminal, run:
+```
+chmod +x server/node_modules/.bin/nodemon
+chmod +x server/node_modules/.bin/tsx
+```
+
+Then, try starting the server again:
+npm run start
+
 ## 📸 Screenshots
 ![Gameplay Screenshot Attack](/shared/assets/attack.png)
 ![Gameplay Screenshot Defense](/shared/assets/defense.png)
